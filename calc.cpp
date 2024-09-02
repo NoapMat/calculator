@@ -1,29 +1,46 @@
 #include <iostream>
+
+// not a good practice, well its based on usecases.
 using namespace std;
 
 int main() {
-	int a, b, c;
-	float d;
-	cout << "num 1: ";
-	cin >> a;
-	cout << "Select Operations: \n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division" << "\n?: ";
-	cin >> b;
-	cout << "num 2: ";
-	cin >> c;
-	switch (b) {
-		case 1:
-			d = a + c;
+	while (1) {
+		// initializations
+		int n1, n2, operation;
+		string choice;
+		double result;
+		n1 = 0;
+		n2 = 0;
+		result = 0;
+		choice = "a";
+		
+		// interactives
+		cout << "n1: ";
+		cin >> n1;
+		cout << "n2: ";
+		cin >> n2;
+		cout << "Select Your Operations:\n1. Addition\n2. Subtraction\n3. Division\n4. Multiplication\n:>>";
+		cin >> operation;
+
+		switch (operation) {
+			case 1:
+				result = n1 + n2;
+				break;
+			case 2:
+				result = n1 - n2;
+				break;
+			case 3:
+				result = n2 / n1;
+				break;
+			case 4:
+				result = n1 * n2;
+				break;
+		}
+		cout << "Result: " << result << endl;
+		cout << "Do you want to continue?: (y/n) ";
+		cin >> choice;
+		if (choice == "n" || choice == "no") {
 			break;
-		case 2:
-			d = a - c;
-			break;
-		case 3:
-			d = a * c;
-			break;
-		case 4:
-			d = a / c;
-			break;
+		}
 	}
-	cout << "The answer is: " << d << endl;
-	return 0;
 }
